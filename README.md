@@ -1,5 +1,6 @@
 
 
+
 # 120 Years of Olympic History data analysis
 
 # Introduction:
@@ -44,7 +45,8 @@ The columns are the following:<br>
 - the columns `Age, Height and Weight` contain outliers values 
 - we have found a strong relationship between the height and the weight so we have decided to handle them via Local Outlier Factor (LOF) 
 - however for the age,  values range from  `[10 to 97]`  as shown in the boxplot figure of the outlier in the visualtization before cleaning section. So, because all of these values are real, we can't get rid of any of them, so we've decided to keep all age outliers.
-
+# Visualizations Types
+- we have used Barcharts, Boxplots, Distribution, Piecharts, and Scatterplots/Regplots to demonstrate the relationship between columns. 
 # Research Questions:
 The motivation of this anylsis is to find out the answers to the following questions: 
 
@@ -53,3 +55,5 @@ The motivation of this anylsis is to find out the answers to the following quest
 3. Has Egypt's number of medals in the winter event increased over time?
 4. Whats' the distribution of age for male/females over the years?
 5. Number of women relative to men across countries
+
+
