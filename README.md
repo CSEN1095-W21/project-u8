@@ -4,8 +4,7 @@
 
 ## Introduction:
 This project uses the dataset called 120 years of Olympic history from
-Kaggle. Methods like Data Cleaning and Data Preparation were used to get the
-data ready for analyzing.
+Kaggle. Methods like Data Cleaning and Data Preparation were used to get the data ready for analyzing.
 
 ## Dataset:
 The Dataset used here is called 120 years of Olympic history .It contains historical dataset on the modern Olympic Games, including all the Games from Athens 1896 to Rio 2016.
@@ -33,15 +32,18 @@ The columns are the following:<br>
 
 
 ## Data Preparation and Cleaning:
-
+### Handing Missing values:
 - By initial analysis, we found that `Age, Height, Weight and Medals` had lot of missing values. 
 - The column `Medal` had 231333 missing values. This is fine because not all the participants can win a medal. So replaced these values with `non`.
 - To get the region of the Team in the athlete events.csv, there was merge done for athlete events and region dataset based on their NOC values.
 - Problems – Some NOC present in the athlete events dataset does not associate to a country from the regions dataset. But we can easily add them manually based on their city Name. This was performed to reduce the number of missing values in the dataset.
+### Handing Outliers:
+- the columns `Age, Height and Weight` contain outliers values 
+- we have found a strong relationship between the height and the weight so we have decided to handle them via Local Outlier Factor (LOF) 
+- however for the age,  values range from  `[10 to 97]`  as shown in the boxplot figure of the outlier in the visualtization before cleaning section. So, because all of these values are real, we can't get rid of any of them, so we've decided to keep all age outliers.
 
 ## Research Questions:
-
-  
+The motivation of this anylsis is to find out the answers to the following questions: 
 
 1. Does hosting the Olympics improve performance?
 2. Has Egypt's number of medals in the summer event increased over time?
