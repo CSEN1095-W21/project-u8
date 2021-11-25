@@ -45,7 +45,7 @@ The columns are the following:<br>
 - we have found a strong relationship between the height and the weight so we have decided to handle them via Local Outlier Factor (LOF) 
 - however for the age,  values range from  `[10 to 97]`  as shown in the boxplot figure of the outlier in the visualtization before cleaning section. So, because all of these values are real, we can't get rid of any of them, so we've decided to keep all age outliers.
 
-## Research Questions:
+# Research Questions:
 The motivation of this anylsis is to find out the answers to the following questions: 
 
 1. Does hosting the Olympics improve performance?
