@@ -32,7 +32,7 @@ The columns are the following:<br>
 
 
 # Data Exploration: 
-- in this step, we use data visualization and statistical techniques to describe dataset characterizations, such as size, quantity, and accuracy, in order to better understand the nature of the data.
+- In this step, we used data visualization and statistical techniques to describe dataset characterizations, such as size, quantity, and accuracy, in order to better understand the nature of the data.
 
 
 # Data Preparation and Cleaning:
