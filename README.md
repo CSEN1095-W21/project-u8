@@ -48,21 +48,21 @@ The columns are the following:<br>
 Here we will mention the datasets we merged to our dataset
  1. **noc_regions**
  -Location:  [https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results?select=noc_regions.csv]
-  ` NOC` (National Olympic Committee 3 letter code)
- `Country name` (matches with regions in  map_data("world"))
-  `Notes`
- 3. **Country Wise GDP Data**
+ 1.` NOC` (National Olympic Committee 3 letter code)
+ 2.`Country name` (matches with regions in  map_data("world"))
+  3.`Notes`
+ 2. **Country Wise GDP Data**
  -  Source: Kaggle
 -   Location:  [https://www.kaggle.com/chadalee/country-wise-gdp-data]
-`Country Name`
-`Country Code`
-`Years` a column for each year represents the GDP value of the country in this year
+1.`Country Name`
+2.`Country Code`
+3.`Years` a column for each year represents the GDP value of the country in this year
 3.  **Country Wise Population Data** 
 -   Source: Kaggle
 -   Location:  [https://www.kaggle.com/chadalee/country-wise-population-data]
-`Country Name`
-`Country Code`
-`Years`a column for each year represents the population of the country in this year
+1.`Country Name`
+2.`Country Code`
+3.`Years`a column for each year represents the population of the country in this year
 
 
 # Added Features
