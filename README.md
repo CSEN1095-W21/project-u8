@@ -1,6 +1,3 @@
-
-
-
 # 120 Years of Olympic History data analysis
 
 # Introduction:
@@ -37,23 +34,52 @@ The columns are the following:<br>
 
 # Data Preparation and Cleaning:
 ## Handing Missing values:
-- By initial analysis, we found that `Age, Height, Weight and Medals` had lot of missing values. 
-- The column `Medal` had 231333 missing values. This is fine because not all the participants can win a medal. So replaced these values with `non`.
-- To get the region of the Team in the athlete events.csv, there was merge done for athlete events and region dataset based on their NOC values.
-- Problems – Some NOC present in the athlete events dataset does not associate to a country from the regions dataset. But we can easily add them manually based on their city Name. This was performed to reduce the number of missing values in the dataset.
+ 1. By initial analysis, we found that `Age, Height, Weight and Medals` had lot of missing values. 
+ 2. The column `Medal` had 231333 missing values. This is fine because not all the participants can win a medal. So replaced these values with `non`.
+ 3. To get the region of the Team in the athlete events.csv, there was merge done for athlete events and region dataset based on their NOC values.
+ 4. Problems – Some NOC present in the athlete events dataset does not associate to a country from the regions dataset. But we can easily add them manually based on their city Name. This was performed to reduce the number of missing values in the dataset.
 ## Handing Outliers:
-- the columns `Age, Height and Weight` contain outliers values 
-- we have found a strong relationship between the height and the weight so we have decided to handle them via Local Outlier Factor (LOF) 
-- however for the age,  values range from  `[10 to 97]`  as shown in the boxplot figure of the outlier in the visualtization before cleaning section. So, because all of these values are real, we can't get rid of any of them, so we've decided to keep all age outliers.
+ 5. the columns `Age, Height and Weight` contain outliers values 
+ 6. we have found a strong relationship between the height and the weight so we have decided to handle them via Local Outlier Factor (LOF) 
+ 7. however for the age,  values range from  `[10 to 97]`  as shown in the boxplot figure of the outlier in the visualtization before cleaning section. So, because all of these values are real, we can't get rid of any of them, so we've decided to keep all age outliers.
 # Visualizations Types
-- we have used Barcharts, Boxplots, Distribution, Piecharts, and Scatterplots/Regplots to demonstrate the relationship between columns. 
+ 8. we have used Barcharts, Boxplots, Distribution, Piecharts, and Scatterplots/Regplots to demonstrate the relationship between columns. 
+# Added Datasets
+Here we will mention the datasets we merged to our dataset
+ 1. **noc_regions**
+ -Location:  [https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results?select=noc_regions.csv]
+  ` NOC` (National Olympic Committee 3 letter code)
+ `Country name` (matches with regions in  map_data("world"))
+  `Notes`
+ 3. **Country Wise GDP Data**
+ -  Source: Kaggle
+-   Location:  [https://www.kaggle.com/chadalee/country-wise-gdp-data]
+`Country Name`
+`Country Code`
+`Years` a column for each year represents the GDP value of the country in this year
+3.  **Country Wise Population Data** 
+-   Source: Kaggle
+-   Location:  [https://www.kaggle.com/chadalee/country-wise-population-data]
+`Country Name`
+`Country Code`
+`Years`a column for each year represents the population of the country in this year
+
+
+# Added Features
+
+ 1. `Host_Country` represent the hosting country for this row
+ 2. `GDP/Capita` is a GDP per capita that generally indicates how rich each person in this country is
+ 3. `Medal_Won` true if a medal is won in this event
+ 4. `Team_Event` true if this event is a team event 
+ 5. `Single_Event`true if this event is a single player event
+
 # Research Questions:
 The motivation of this anylsis is to find out the answers to the following questions: 
 
-1. Does hosting the Olympics improve performance?
-2. Has Egypt's number of medals in the summer event increased over time?
-3. Has Egypt's number of medals in the winter event increased over time?
-4. Whats' the distribution of age for male/females over the years?
-5. Number of women relative to men across countries
-
-
+1. Who are the greatest olympics playing nations of all time ?
+2.  What sports are the top countries best at?
+3.  Does the size of the contingent relate with the number of medals ?
+4.  Do hosting the olympics is an advatage to the hosting team ?
+5.  Do richer countries perform better at olympics ?
+6.  Can we predict the medal tally of a country ?
+```
