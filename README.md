@@ -112,8 +112,11 @@ We implemented a pipeline to run daily for a month to perform the following step
  2. Perform sentiment analysis on the tweets using for example Python’s Textblob library.
  3. Average the sentiments of the tweets you retrieved so far for both countries
  4. Compare the results with the performance of the country in the Olympics.
+ 5. Results are saved in a csv file.
  
- ### Pipeline Dependencies: 
+Except for the last task, the return value of each task is passed to the next task via XCOM.
+
+### Pipeline Dependencies: 
 
 ![Pipeline Dependencies](https://i.postimg.cc/NMspb60Q/Annotation-2021-12-31-150315.png)
  
