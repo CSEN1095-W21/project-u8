@@ -34,7 +34,8 @@ from matplotlib.pyplot import *
 from sklearn.neighbors import LocalOutlierFactor
 
 
-def load_csv():
+def load_csv(**kwargs):
+    run_id = kwargs["dag_run"].run_id
     olympicRecords = pd.read_csv(
         "https://raw.githubusercontent.com/Abzokhattab/120-years-of-Olympic-History-Analysis/main/athlete_events.csv", index_col=0)
     regions = pd.read_csv(
@@ -114,17 +115,16 @@ def load_csv():
     sns.heatmap(olympicRecords.corr(), annot=True)
     """the previous heatmap chart show a strong relationship between the height and the weight which means we can predict height's missing values depending on the weight value"""
 
-    regions.to_csv("load_csv_regions.csv")
-    olympicRecords.to_csv("load_csv_olympicRecords.csv",
-                          )
+    regions.to_csv(f"load_csv_regions_{run_id}.csv")
+    olympicRecords.to_csv(f"load_csv_olympicRecords_{run_id}.csv")
     print("file saved in: ", os.getcwdb())
 
 
-def data_cleaning():
-    regions = pd.read_csv("load_csv_regions.csv",
-                          )
+def data_cleaning(**kwargs):
+    run_id = kwargs["dag_run"].run_id
+    regions = pd.read_csv(f"load_csv_regions_{run_id}.csv")
     olympicRecords = pd.read_csv(
-        "load_csv_olympicRecords.csv")
+        f"load_csv_olympicRecords_{run_id}.csv")
 
     # Cleaning the Data
     """
@@ -387,19 +387,21 @@ def data_cleaning():
         """
 
     olympics_merge_outliersDropped.to_csv(
-        "data_cleaning.csv")
+        f"data_cleaning_{run_id}.csv")
     print("file saved in: ", os.getcwdb())
 
 
-def data_integration():
+def data_integration(**kwargs):
     """
     # Data integration
     Previously in milestone 1 we did already merge the dataset NOC regions and then we did the first feature Engineering by creating the column 'Host_Country'.
     So now we will merge the additional data specificly 2 more datasets one that is the GDP for each country across the years and the other dataset have information about the population of the countries, the 2 new datasets are very useful for us to answer our research question
     """
 
+    run_id = kwargs["dag_run"].run_id
+
     olympics_merge_outliersDropped = pd.read_csv(
-        "data_cleaning.csv")
+        f"data_cleaning_{run_id}.csv")
 
     w_gdp = pd.read_csv(
         'https://raw.githubusercontent.com/abzokhattab/120-years-of-Olympic-History-Analysis/main/world_gdp.csv', skiprows=3)
@@ -462,19 +464,19 @@ def data_integration():
 
     olympics_final.head()
 
-    olympics_final.to_csv("data_integration.csv",
-                          )
+    olympics_final.to_csv(f"data_integration_{run_id}.csv")
     print("file saved in: ", os.getcwdb())
 
 
-def feature_engineering():
+def feature_engineering(**kwargs):
     """
     #Feature Engineering
 
     Now for further analysis we decided to create a new feature represents if in this row there is a medal won or not because this will help us figure the medals won for each team """
 
-    olympics_final = pd.read_csv(
-        "data_integration.csv")
+    run_id = kwargs["dag_run"].run_id
+
+    olympics_final = pd.read_csv(f"data_integration_{run_id}.csv")
 
     olympics_final['Medal_Won'] = np.where(
         olympics_final.loc[:, 'Medal'] == 'non', 0, 1)
@@ -533,8 +535,7 @@ def feature_engineering():
 
     olympics_final.head()
 
-    olympics_final.to_csv("feature_engineering.csv",
-                          )
+    olympics_final.to_csv(f"feature_engineering_{run_id}.csv")
 
     print("file saved in: ", os.getcwdb())
 
