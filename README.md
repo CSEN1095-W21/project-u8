@@ -1,3 +1,4 @@
+
 # 120 Years of Olympic History data analysis
 
 # Introduction:
@@ -82,4 +83,37 @@ The motivation of this anylsis is to find out the answers to the following quest
 4.  Do hosting the olympics is an advatage to the hosting team ?
 5.  Do richer countries perform better at olympics ?
 6.  Can we predict the medal tally of a country ?
-```
+
+
+# Airflow Pipelines: 
+
+### Description: 
+In this section a simplified ETL pipline was implemented to can and perform preprocessing steps.
+
+This pipeline includes the following tasks: 
+1. Load datasets from CSV files
+2. Cleaning the Data 
+3. Data Integration 
+4. Feature Engineering  
+
+A csv file for the dataframe is saved at the end of each pipeline.
+
+### Pipeline Dependencies: 
+The following graph shows the dependencies in the pipeline: 
+![Pipeline Dependencies](https://i.postimg.cc/26mmjKSr/Annotation-2021-12-31-143608.png)
+
+# Bonus Airflow Task: 
+
+### Description: 
+In this section, we selected China as one of the top performing countries in the Tokyo 2021 Olympics. and India as one of the poor performing countries.
+
+We implemented a pipeline to run daily for a month to perform the following steps: 
+ 1. Get 20 tweets for each country 
+ 2. Perform sentiment analysis on the tweets using for example Python’s Textblob library.
+ 3. Average the sentiments of the tweets you retrieved so far for both countries
+ 4. Compare the results with the performance of the country in the Olympics.
+ 
+ ### Pipeline Dependencies: 
+
+![Pipeline Dependencies](https://i.postimg.cc/NMspb60Q/Annotation-2021-12-31-150315.png)
+ 
